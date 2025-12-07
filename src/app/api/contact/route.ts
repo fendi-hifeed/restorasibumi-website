@@ -7,7 +7,7 @@ export async function POST(request: Request) {
 
         // Validasi input
         if (!name || !email || !message) {
-            return NextResponse.json(
+            return NextResponse.json( 
                 { error: 'Nama, Email, dan Pesan wajib diisi' },
                 { status: 400 }
             );
