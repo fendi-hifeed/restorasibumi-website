@@ -5,25 +5,34 @@ import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 
+import LanguageToggle from "./LanguageToggle";
+
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
     const navLinks = [
         {
-            name: "Tentang",
+            name: "About Us",
             href: "#about",
             dropdown: [
-                { name: "Cara Kerja Kami", href: "#about" },
-                { name: "Tim Kami", href: "#team" },
-                { name: "Mitra", href: "#partners" },
+                { name: "Visi & Misi", href: "#vision-mission" },
+                { name: "How We Work", href: "#vision-mission" },
+                { name: "Kontak Kami", href: "#contact" },
+                { name: "FAQ", href: "#faq" },
             ]
         },
-        { name: "Program", href: "#programs" },
-        { name: "Proyek", href: "#projects" },
-        { name: "Dampak", href: "#impact" },
-        { name: "Berita", href: "#news" },
-        { name: "Bergabung", href: "#contact" },
+        {
+            name: "Program",
+            href: "#programs",
+            dropdown: [
+                { name: "ReGen Earth", href: "#environment-programs" },
+                { name: "ReGen Humanity", href: "#humanity-programs" },
+                { name: "ReGen Future", href: "#faith-programs" },
+            ]
+        },
+        { name: "Impact", href: "#impact" },
+        { name: "Donasi", href: "#donate" },
     ];
 
     return (
@@ -53,48 +62,49 @@ const Navbar = () => {
                         {navLinks.map((link) => (
                             <div
                                 key={link.name}
-                                className="relative group"
-                                onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
-                                onMouseLeave={() => setActiveDropdown(null)}
+                                className="relative group h-full flex items-center"
                             >
                                 <Link
                                     href={link.href}
                                     className="flex items-center gap-1 text-gray-700 hover:text-primary transition-colors font-medium py-2"
                                 >
                                     {link.name}
-                                    {link.dropdown && <ChevronDown size={16} className="opacity-50" />}
+                                    {link.dropdown && <ChevronDown size={16} className="opacity-50 group-hover:rotate-180 transition-transform duration-300" />}
                                 </Link>
-                                {link.dropdown && activeDropdown === link.name && (
-                                    <div className="absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 min-w-[200px] border border-gray-100 animate-slide-up">
-                                        {link.dropdown.map((item) => (
-                                            <Link
-                                                key={item.name}
-                                                href={item.href}
-                                                className="block px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors"
-                                            >
-                                                {item.name}
-                                            </Link>
-                                        ))}
+
+                                {link.dropdown && (
+                                    <div className="absolute top-full left-0 pt-2 hidden group-hover:block">
+                                        <div className="bg-white shadow-xl rounded-lg py-2 min-w-[200px] border border-gray-100 animate-slide-up">
+                                            {link.dropdown.map((item) => (
+                                                <Link
+                                                    key={item.name}
+                                                    href={item.href}
+                                                    className="block px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors"
+                                                >
+                                                    {item.name}
+                                                </Link>
+                                            ))}
+                                        </div>
                                     </div>
                                 )}
                             </div>
                         ))}
                     </div>
 
-                    {/* Language & CTA */}
+                    {/* CTA Button & Language Toggle */}
                     <div className="hidden lg:flex items-center gap-4">
-                        <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-2 py-1">
-                            <button className="w-8 h-6 rounded overflow-hidden opacity-50 hover:opacity-100 transition-opacity">
-                                <span className="text-xs font-medium">EN</span>
-                            </button>
-                            <button className="w-8 h-6 rounded overflow-hidden border-2 border-primary">
-                                <span className="text-xs font-medium text-primary">ID</span>
-                            </button>
-                        </div>
+                        <LanguageToggle />
+                        <Link
+                            href="#donate"
+                            className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                        >
+                            Donasi Sekarang
+                        </Link>
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <div className="lg:hidden flex items-center">
+                    <div className="lg:hidden flex items-center gap-4">
+                        <LanguageToggle />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="text-gray-600 hover:text-primary focus:outline-none p-2"
@@ -110,18 +120,48 @@ const Navbar = () => {
                 <div className="lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
                     <div className="px-4 pt-2 pb-4 space-y-1">
                         {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                {link.name}
-                            </Link>
+                            <div key={link.name}>
+                                {link.dropdown ? (
+                                    <div>
+                                        <button
+                                            className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
+                                            onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
+                                        >
+                                            {link.name}
+                                            <ChevronDown
+                                                size={16}
+                                                className={`transition-transform ${activeDropdown === link.name ? 'rotate-180' : ''}`}
+                                            />
+                                        </button>
+                                        {activeDropdown === link.name && (
+                                            <div className="pl-4 mt-1 space-y-1">
+                                                {link.dropdown.map((item) => (
+                                                    <Link
+                                                        key={item.name}
+                                                        href={item.href}
+                                                        className="block px-4 py-2 rounded-lg text-sm text-gray-600 hover:text-primary hover:bg-gray-50"
+                                                        onClick={() => setIsOpen(false)}
+                                                    >
+                                                        {item.name}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                ) : (
+                                    <Link
+                                        href={link.href}
+                                        className="block px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                )}
+                            </div>
                         ))}
                         <Link
                             href="#donate"
-                            className="block w-full text-center mt-4 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-light transition-colors"
+                            className="block w-full text-center mt-4 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
                             Donasi Sekarang

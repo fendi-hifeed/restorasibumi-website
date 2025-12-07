@@ -26,23 +26,15 @@ const Hero = () => {
                     {/* Left Content */}
                     <div className="space-y-8">
                         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-primary leading-[1.1]">
-                            Katalis untuk<br />
-                            Memulihkan<br />
-                            <span className="text-gray-900">Ekosistem Indonesia</span>
-                        </h1>
+                            Memulihkan Bumi,<br />
+                            <span className="text-gray-900">Mengembalikan Harapan.</span>
 
-                        <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
-                            Dengan mempertemukan aktor-aktor strategis di bidang konservasi dan pembangunan berkelanjutan, kami mendorong penguatan kapasitas masyarakat, inovasi hijau, serta advokasi kebijakan publik.
+                        </h1>
+                        <p className="text-base md:text-lg text-accent font-semibold tracking-wide">
+                            Regenerate. Rebuild. Rise.
                         </p>
 
-                        <div className="flex flex-wrap gap-4 pt-2">
-                            <span className="text-primary font-bold text-lg">
-                                #RestorasiBumi
-                            </span>
-                            <span className="text-accent font-bold text-lg">
-                                #GrowTogether
-                            </span>
-                        </div>
+                        {/* Removed detailed paragraph and hashtags per design brief */}
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4">
                             <Link

@@ -10,10 +10,8 @@ const VideoSection = () => {
                         <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl">
                             <iframe
                                 className="w-full h-full"
-                                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                                title="Restorasi Bumi Video"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
+                                src="https://drive.google.com/file/d/16RuZu3UQKKO027FwjbTddciUTz1Fw72B/preview"
+                                allow="autoplay"
                             ></iframe>
                         </div>
                         {/* Decorative vertical text */}
