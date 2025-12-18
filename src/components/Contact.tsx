@@ -1,9 +1,11 @@
 "use client";
 
+import { useLanguage } from "../context/LanguageContext";
 import { useState } from "react";
 import { Send, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 
 const Contact = () => {
+    const { t } = useLanguage();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -52,21 +54,21 @@ const Contact = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <div>
-                        <span className="text-primary font-semibold tracking-wider uppercase text-sm">Hubungi Kami</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">Mari Berkolaborasi</h2>
+                        <span className="text-primary font-semibold tracking-wider uppercase text-sm">{t.contact.title}</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">{t.contact.subtitle}</h2>
                         <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                            Punya ide untuk kolaborasi atau ingin tahu lebih banyak tentang program kami? Jangan ragu untuk menghubungi kami. Tim kami siap membantu Anda.
+                            {t.contact.subtitle}
                         </p>
 
                         <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Kantor Pusat</h3>
-                            <p className="text-gray-600 mb-2">Gedung Hijau Lestari, Lt. 3</p>
-                            <p className="text-gray-600 mb-2">Jl. Jendral Sudirman No. Kav 10</p>
-                            <p className="text-gray-600 mb-6">Jakarta Pusat, 10220</p>
+                            <h3 className="text-xl font-bold text-gray-900 mb-4">{t.contact.info.address}</h3>
+                            <p className="text-gray-600 mb-2">Plaza Aminta lantai 5/505</p>
+                            <p className="text-gray-600 mb-2">JI TB Simatupang kav. 10, Pondok Pinang</p>
+                            <p className="text-gray-600 mb-6">Kebayoran Lama, Jakarta Selatan. DKI Jakarta</p>
 
                             <div className="space-y-2">
-                                <p className="text-gray-600"><span className="font-semibold text-gray-900">Email:</span> hello@restorasibumi.org</p>
-                                <p className="text-gray-600"><span className="font-semibold text-gray-900">Telepon:</span> +62 21 5555 1234</p>
+                                <p className="text-gray-600"><span className="font-semibold text-gray-900">{t.contact.info.email}:</span> langkahrestorasibumi@gmail.com</p>
+                                <p className="text-gray-600"><span className="font-semibold text-gray-900">{t.contact.info.phone}:</span> 081809786141</p>
                             </div>
                         </div>
                     </div>
@@ -91,7 +93,7 @@ const Contact = () => {
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">{t.contact.form.name}</label>
                                     <input
                                         type="text"
                                         id="name"
@@ -99,11 +101,11 @@ const Contact = () => {
                                         onChange={handleChange}
                                         required
                                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                                        placeholder="Nama Anda"
+                                        placeholder={t.contact.form.name}
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">{t.contact.form.email}</label>
                                     <input
                                         type="email"
                                         id="email"
@@ -111,25 +113,25 @@ const Contact = () => {
                                         onChange={handleChange}
                                         required
                                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                                        placeholder="email@contoh.com"
+                                        placeholder={t.contact.form.email}
                                     />
                                 </div>
                             </div>
 
                             <div>
-                                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subjek</label>
+                                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">{t.contact.form.subject}</label>
                                 <input
                                     type="text"
                                     id="subject"
                                     value={formData.subject}
                                     onChange={handleChange}
                                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                                    placeholder="Judul Pesan"
+                                    placeholder={t.contact.form.subject}
                                 />
                             </div>
 
                             <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
+                                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">{t.contact.form.message}</label>
                                 <textarea
                                     id="message"
                                     rows={4}
@@ -137,7 +139,7 @@ const Contact = () => {
                                     onChange={handleChange}
                                     required
                                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                                    placeholder="Tulis pesan Anda di sini..."
+                                    placeholder={t.contact.form.message}
                                 ></textarea>
                             </div>
 
@@ -161,7 +163,7 @@ const Contact = () => {
                                 ) : (
                                     <>
                                         <Send size={20} />
-                                        Kirim Pesan
+                                        {t.contact.form.send}
                                     </>
                                 )}
                             </button>

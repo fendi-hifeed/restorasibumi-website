@@ -1,9 +1,12 @@
 "use client";
 
+import { useLanguage } from "../context/LanguageContext";
 import { Target, Eye, Compass, Users, Lightbulb, Handshake } from "lucide-react";
 import Image from "next/image";
 
 const VisionMission = () => {
+    const { t } = useLanguage();
+
     return (
         <section id="vision-mission" className="py-20 bg-gradient-to-b from-white to-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,10 +20,10 @@ const VisionMission = () => {
                                 <div className="w-14 h-14 bg-gradient-to-br from-primary to-teal rounded-2xl flex items-center justify-center shadow-lg shadow-primary/25">
                                     <Eye size={28} className="text-white" />
                                 </div>
-                                <h2 className="text-3xl md:text-4xl font-bold text-primary">Visi</h2>
+                                <h2 className="text-3xl md:text-4xl font-bold text-primary">{t.visionMission.vision}</h2>
                             </div>
                             <p className="text-xl text-gray-700 leading-relaxed">
-                                Mewujudkan <strong className="text-primary">bumi yang pulih</strong>, <strong className="text-primary">manusia yang berdaya</strong>, dan <strong className="text-primary">masa depan yang berkelanjutan</strong>.
+                                {t.visionMission.visionDesc}
                             </p>
                         </div>
                     </div>
@@ -33,24 +36,24 @@ const VisionMission = () => {
                                 <div className="w-14 h-14 bg-gradient-to-br from-teal to-accent rounded-2xl flex items-center justify-center shadow-lg shadow-teal/25">
                                     <Target size={28} className="text-white" />
                                 </div>
-                                <h2 className="text-3xl md:text-4xl font-bold text-primary">Misi</h2>
+                                <h2 className="text-3xl md:text-4xl font-bold text-primary">{t.visionMission.mission}</h2>
                             </div>
                             <ol className="space-y-4">
                                 <li className="flex gap-4">
                                     <span className="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-sm">1</span>
-                                    <p className="text-gray-700">Memulihkan ekosistem dan lahan kritis</p>
+                                    <p className="text-gray-700">{t.visionMission.mission1}</p>
                                 </li>
                                 <li className="flex gap-4">
                                     <span className="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-sm">2</span>
-                                    <p className="text-gray-700">Menguatkan masyarakat yang terdampak bencana dan ketidaksetaraan</p>
+                                    <p className="text-gray-700">{t.visionMission.mission2}</p>
                                 </li>
                                 <li className="flex gap-4">
                                     <span className="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-sm">3</span>
-                                    <p className="text-gray-700">Menciptakan ruang inovasi untuk generasi muda</p>
+                                    <p className="text-gray-700">{t.visionMission.mission3}</p>
                                 </li>
                                 <li className="flex gap-4">
                                     <span className="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-sm">4</span>
-                                    <p className="text-gray-700">Membangun kolaborasi lintas komunitas demi keberlanjutan</p>
+                                    <p className="text-gray-700">{t.visionMission.mission4}</p>
                                 </li>
                             </ol>
                         </div>
@@ -58,7 +61,7 @@ const VisionMission = () => {
                 </div>
 
                 {/* How We Work Section */}
-                <div className="bg-gradient-to-br from-primary/5 via-white to-teal/5 rounded-3xl p-10 md:p-16 relative overflow-hidden">
+                <div id="how-we-work" className="bg-gradient-to-br from-primary/5 via-white to-teal/5 rounded-3xl p-10 md:p-16 relative overflow-hidden">
                     {/* Decorative Elements */}
                     <div className="absolute top-10 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
                     <div className="absolute bottom-10 right-10 w-32 h-32 bg-teal/10 rounded-full blur-2xl"></div>
@@ -70,25 +73,25 @@ const VisionMission = () => {
                                 <div className="w-14 h-14 bg-gradient-to-br from-primary to-navy rounded-2xl flex items-center justify-center shadow-lg shadow-primary/25">
                                     <Compass size={28} className="text-white" />
                                 </div>
-                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">How We Work</h2>
+                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{t.visionMission.howWeWork}</h2>
                             </div>
 
                             <h3 className="text-xl font-bold text-primary mb-4">
-                                Dipimpin dengan Hati, Bergerak untuk Sesama
+                                {t.visionMission.howWeWorkHeading}
                             </h3>
 
                             <p className="text-gray-600 leading-relaxed mb-4">
-                                Di Yayasan Langkah Restorasi Bumi, kami percaya bahwa perubahan besar dimulai dari langkah kecil yang tulus. Tim kami hadir dari berbagai latar belakang, namun dipersatukan oleh satu panggilan: <strong className="text-gray-800">menghadirkan kebaikan bagi manusia, lingkungan, dan kehidupan sosial yang lebih harmonis.</strong>
+                                {t.visionMission.howWeWorkDesc1}
                             </p>
 
                             <p className="text-gray-600 leading-relaxed mb-6">
-                                Sebagai yayasan yang berfokus pada sosial, kemanusiaan, dan mempersiapkan masa depan setiap program yang kami jalankan dibangun dari nilai empati, kepedulian, dan rasa tanggung jawab kepada sesama. Kami bergerak dengan semangat kolaborasi, bahu membahu untuk menciptakan dampak yang nyata, bukan hanya untuk hari ini, tapi juga untuk masa depan yang lebih baik.
+                                {t.visionMission.howWeWorkDesc2}
                             </p>
 
                             <div className="bg-gradient-to-r from-primary to-teal p-6 rounded-2xl shadow-lg">
-                                <p className="text-white font-semibold mb-2">Mari melangkah bersama.</p>
+                                <p className="text-white font-semibold mb-2">{t.visionMission.howWeWorkMotto}</p>
                                 <p className="text-white/90 text-sm leading-relaxed">
-                                    Menguatkan yang lemah, menyembuhkan yang terdampak, dan merawat bumi tempat kita berpijak dengan <strong>satu aksi, satu harapan, satu cerita perubahan.</strong>
+                                    {t.visionMission.howWeWorkMottoDesc}
                                 </p>
                             </div>
                         </div>
@@ -151,25 +154,25 @@ const VisionMission = () => {
                             <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-3">
                                 <Users size={24} className="text-primary" />
                             </div>
-                            <span className="text-sm font-semibold text-gray-800">Kolaborasi</span>
+                            <span className="text-sm font-semibold text-gray-800">{t.visionMission.values.collaboration}</span>
                         </div>
                         <div className="flex flex-col items-center text-center p-4">
                             <div className="w-12 h-12 bg-teal/10 rounded-xl flex items-center justify-center mb-3">
                                 <Lightbulb size={24} className="text-teal" />
                             </div>
-                            <span className="text-sm font-semibold text-gray-800">Inovasi</span>
+                            <span className="text-sm font-semibold text-gray-800">{t.visionMission.values.innovation}</span>
                         </div>
                         <div className="flex flex-col items-center text-center p-4">
                             <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-3">
                                 <Handshake size={24} className="text-accent" />
                             </div>
-                            <span className="text-sm font-semibold text-gray-800">Empati</span>
+                            <span className="text-sm font-semibold text-gray-800">{t.visionMission.values.empathy}</span>
                         </div>
                         <div className="flex flex-col items-center text-center p-4">
                             <div className="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center mb-3">
                                 <Target size={24} className="text-navy" />
                             </div>
-                            <span className="text-sm font-semibold text-gray-800">Keberlanjutan</span>
+                            <span className="text-sm font-semibold text-gray-800">{t.visionMission.values.sustainability}</span>
                         </div>
                     </div>
                 </div>

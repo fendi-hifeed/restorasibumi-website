@@ -1,10 +1,13 @@
 "use client";
 
+import { useLanguage } from "../context/LanguageContext";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Hero = () => {
+    const { t } = useLanguage();
+
     return (
         <div className="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-[90vh] flex items-center overflow-hidden">
             {/* Background Pattern */}
@@ -25,30 +28,28 @@ const Hero = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <div className="space-y-8">
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-primary leading-[1.1]">
-                            Memulihkan Bumi,<br />
-                            <span className="text-gray-900">Mengembalikan Harapan.</span>
-
+                        <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-navy leading-[1.1] mb-6">
+                            {t.hero.heading}
                         </h1>
-                        <p className="text-base md:text-lg text-accent font-semibold tracking-wide">
-                            Regenerate. Rebuild. Rise.
+                        <p className="text-xl md:text-2xl font-semibold text-green-500 tracking-wide mb-8">
+                            {t.hero.tagline}
                         </p>
 
                         {/* Removed detailed paragraph and hashtags per design brief */}
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4">
                             <Link
-                                href="#about"
-                                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-primary rounded-full hover:bg-primary-light transition-all shadow-lg hover:shadow-primary/30"
+                                href="#how-we-work"
+                                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-navy rounded-full hover:bg-navy-light transition-all shadow-lg hover:shadow-navy/30"
                             >
-                                Pelajari Lebih Lanjut
+                                {t.hero.learnMore}
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Link>
                             <Link
                                 href="#contact"
-                                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-primary bg-white border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all"
+                                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-navy bg-white border-2 border-navy rounded-full hover:bg-navy hover:text-white transition-all"
                             >
-                                Hubungi Kami
+                                {t.hero.joinContribution}
                             </Link>
                         </div>
                     </div>

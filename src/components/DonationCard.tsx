@@ -1,39 +1,42 @@
 "use client";
 
+import { useLanguage } from "../context/LanguageContext";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const DonationCard = () => {
+    const { t } = useLanguage();
+
     const donations = [
         {
-            name: "KITAHIJAUKAN",
+            name: t.donation.cards.kitahijaukan.name,
             href: "https://kitahijaukan.com",
-            description: "Gerakan Restorasi Lahan",
+            description: t.donation.cards.kitahijaukan.desc,
         },
         {
-            name: "YOUTH CLIMATE GRANT",
+            name: t.donation.cards.youth.name,
             href: "#youth-climate-grant",
-            description: "Hibah untuk Aksi Iklim Pemuda",
+            description: t.donation.cards.youth.desc,
         },
         {
-            name: "BANTUAN BENCANA",
+            name: t.donation.cards.disaster.name,
             href: "#bantuan-bencana",
-            description: "Tanggap Darurat Bencana",
+            description: t.donation.cards.disaster.desc,
         },
         {
-            name: "DHUAFA",
+            name: t.donation.cards.dhuafa.name,
             href: "#dhuafa",
-            description: "Dukungan untuk Kaum Dhuafa",
+            description: t.donation.cards.dhuafa.desc,
         },
         {
-            name: "ANAK YATIM",
+            name: t.donation.cards.orphans.name,
             href: "#anak-yatim",
-            description: "Santunan Anak Yatim",
+            description: t.donation.cards.orphans.desc,
         },
         {
-            name: "DONASI UMUM",
+            name: t.donation.cards.general.name,
             href: "#donasi-umum",
-            description: "Donasi untuk Berbagai Program",
+            description: t.donation.cards.general.desc,
         },
     ];
 
@@ -43,10 +46,10 @@ const DonationCard = () => {
                 {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-primary italic">
-                        Donation Card
+                        {t.donation.title}
                     </h2>
                     <p className="text-gray-600 mt-4">
-                        Pilih program donasi yang ingin Anda dukung
+                        {t.donation.subtitle}
                     </p>
                 </div>
 
@@ -78,7 +81,7 @@ const DonationCard = () => {
                 {/* Additional Info */}
                 <div className="text-center mt-10">
                     <p className="text-gray-500 text-sm">
-                        Semua donasi akan dikelola secara transparan dan akuntabel
+                        {t.donation.footer}
                     </p>
                 </div>
             </div>
