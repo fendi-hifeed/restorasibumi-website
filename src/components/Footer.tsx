@@ -15,12 +15,12 @@ const Footer = () => {
                     {/* Brand Column */}
                     <div className="space-y-4">
                         <div className="flex items-center gap-2 mb-4">
-                            <div className="relative h-10 w-10 bg-white rounded-full p-1">
+                            <div className="relative h-12 w-12 border border-white rounded-full">
                                 <Image
-                                    src="/logo.png"
+                                    src="/logo-bulat.png"
                                     alt="Restorasi Bumi Logo"
                                     fill
-                                    className="object-contain p-1"
+                                    className="object-contain rounded-full"
                                 />
                             </div>
                             <span className="font-bold text-xl text-white">Restorasi Bumi</span>

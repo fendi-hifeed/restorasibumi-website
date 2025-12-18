@@ -19,7 +19,7 @@ const Navbar = () => {
             href: "#about",
             dropdown: [
                 { name: t.navbar.visionMission, href: "#vision-mission" },
-                { name: t.navbar.howWeWork, href: "#vision-mission" },
+                { name: t.navbar.howWeWork, href: "#how-we-work" },
                 { name: t.navbar.contact, href: "#contact" },
                 { name: t.navbar.faq, href: "#faq" },
             ]
