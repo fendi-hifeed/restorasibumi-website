@@ -1,5 +1,6 @@
 "use client";
 
+import { useLanguage } from "../context/LanguageContext";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -8,31 +9,32 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 
 const Navbar = () => {
+    const { t } = useLanguage();
     const [isOpen, setIsOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
     const navLinks = [
         {
-            name: "About Us",
+            name: t.navbar.about,
             href: "#about",
             dropdown: [
-                { name: "Visi & Misi", href: "#vision-mission" },
-                { name: "How We Work", href: "#vision-mission" },
-                { name: "Kontak Kami", href: "#contact" },
-                { name: "FAQ", href: "#faq" },
+                { name: t.navbar.visionMission, href: "#vision-mission" },
+                { name: t.navbar.howWeWork, href: "#how-we-work" },
+                { name: t.navbar.contact, href: "#contact" },
+                { name: t.navbar.faq, href: "#faq" },
             ]
         },
         {
-            name: "Program",
+            name: t.navbar.program,
             href: "#programs",
             dropdown: [
-                { name: "ReGen Earth", href: "#environment-programs" },
-                { name: "ReGen Humanity", href: "#humanity-programs" },
-                { name: "ReGen Future", href: "#faith-programs" },
+                { name: t.programs.earth.title, href: "#environment-programs" },
+                { name: t.programs.humanity.title, href: "#humanity-programs" },
+                { name: t.programs.future.title, href: "#faith-programs" },
             ]
         },
-        { name: "Impact", href: "#impact" },
-        { name: "Donasi", href: "#donate" },
+        { name: t.navbar.impact, href: "#impact" },
+        { name: t.navbar.donate, href: "#donate" },
     ];
 
     return (
@@ -98,7 +100,7 @@ const Navbar = () => {
                             href="#donate"
                             className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
                         >
-                            Donasi Sekarang
+                            {t.navbar.donateBtn}
                         </Link>
                     </div>
 
@@ -164,7 +166,7 @@ const Navbar = () => {
                             className="block w-full text-center mt-4 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
-                            Donasi Sekarang
+                            {t.navbar.donateBtn}
                         </Link>
                     </div>
                 </div>

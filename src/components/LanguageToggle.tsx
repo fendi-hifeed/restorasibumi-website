@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 const LanguageToggle = () => {
-    const [language, setLanguage] = useState<"ID" | "EN">("ID");
+    const { language, setLanguage } = useLanguage();
 
     const toggleLanguage = () => {
-        setLanguage((prev) => (prev === "ID" ? "EN" : "ID"));
+        setLanguage(language === "ID" ? "EN" : "ID");
     };
 
     return (

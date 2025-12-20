@@ -1,35 +1,38 @@
 "use client";
 
-import { Users, TreePine, Handshake, Heart } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import { Users, TreePine, Globe, Leaf } from "lucide-react";
 
 const ImpactStats = () => {
+    const { t } = useLanguage();
+
     const stats = [
         {
-            number: "25.000+",
-            label: "POHON DITANAM",
-            sublabel: "Memulihkan paru-paru bumi",
+            number: "1,248",
+            label: t.impactStats.stats.trees.label,
+            sublabel: t.impactStats.stats.trees.sub,
             icon: <TreePine size={32} />,
             variant: "primary"
         },
         {
-            number: "50.000+",
-            label: "PENERIMA MANFAAT",
-            sublabel: "Masyarakat terbantu",
-            icon: <Heart size={32} />,
+            number: "7 Ha",
+            label: t.impactStats.stats.restoration.label,
+            sublabel: t.impactStats.stats.restoration.sub,
+            icon: <Globe size={32} />,
             variant: "teal"
         },
         {
-            number: "200+",
-            label: "RELAWAN",
-            sublabel: "Bergerak bersama kami",
-            icon: <Users size={32} />,
+            number: "3,744 T",
+            label: t.impactStats.stats.carbon.label,
+            sublabel: t.impactStats.stats.carbon.sub,
+            icon: <Leaf size={32} />,
             variant: "navy"
         },
         {
-            number: "100+",
-            label: "MITRA KOLABORASI",
-            sublabel: "Sinergi untuk dampak luas",
-            icon: <Handshake size={32} />,
+            number: "15+",
+            label: t.impactStats.stats.volunteers.label,
+            sublabel: t.impactStats.stats.volunteers.sub,
+            icon: <Users size={32} />,
             variant: "accent"
         }
     ];
@@ -64,10 +67,10 @@ const ImpactStats = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        Dampak Nyata Restorasi Bumi
+                        {t.impactStats.heading}
                     </h2>
                     <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-                        Setiap angka mewakili cerita perubahan, harapan yang tumbuh, dan masa depan yang lebih baik.
+                        {t.impactStats.subheading}
                     </p>
                 </div>
 
